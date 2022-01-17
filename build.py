@@ -46,8 +46,9 @@ def main():
     #   )
     counts = sorted((tag, len(byTag[tag])) for tag in byTag.keys()) # ordered by ascending name
     for tag, count in counts:
-      print(f"{tag} {count}", file=sys.stderr)
-      print(f"{tag} {count}", file=fp)
+      msg = f"{count}\t{tag}"
+      print(msg, file=sys.stderr)
+      print(msg, file=fp)
 
 def generateTagIndex(fp):
   out = lambda msg: print(msg, file=fp)
