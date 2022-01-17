@@ -3,6 +3,7 @@
 1	docs
 1	haskell
 1	hott
+1	json
 4	lang-design
 2	lang-impl
 1	laziness
