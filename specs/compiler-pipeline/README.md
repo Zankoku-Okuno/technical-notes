@@ -60,3 +60,4 @@ The general-purpose tools I have in mind are:
 I will have to do some more thinking and experimentation before embarking on
   - generalized scope analysis
   - format for a generalized linker
+  - format for attacking documentation to bits of API

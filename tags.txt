@@ -1,5 +1,14 @@
-lang-design 2
+lang-design 3
+mixfixes 2
+plan 2
+api-design 1
+dependent-types 1
+docs 1
+haskell 1
 hott 1
+lang-impl 1
+learning 1
+metaprogramming 1
 parsers 1
-plan 1
-todo 1
+philosophy 1
+tactics 1

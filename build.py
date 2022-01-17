@@ -10,13 +10,15 @@ from os import path
 
 # TODO move this into a separately-loaded file
 tagwordToTitle = {
+  "docs": "Documentation",
   "hott": "HoTT",
+  "impl": "Implementation",
+  "lang": "Language",
   "todo": "TODO",
 }
 
 byTag = ddict(lambda: []) # {tag: [(title, filename), …], …}
 untagged = [] # [(title, fname), …]
-tagCount = ddict(lambda: 0) # {tag: <int>, … }
 
 def main():
   tagRegex = r'[a-z-]+'
@@ -28,8 +30,7 @@ def main():
     title, tags = processNote(fname)
     if tags:
       for tag in tags:
-        byTag[tag].append((title, fname))
-        tagCount[tag] += 1
+        byTag[tag].append((title, fname, tags))
     else:
       print(f"[WARN] no tags for {fname}", file=sys.stderr)
       untagged.append((title, fname))
@@ -39,11 +40,13 @@ def main():
     print("", file=fp)
     generateTagIndex(fp)
   with open("tags.txt", 'wt') as fp:
-    counts = sorted(
-        ((tag, len(byTag[tag])) for tag in byTag.keys())
-      , key=lambda x: (-x[1], x[0]) # ordered by descending frequency, then ascending name
-      )
+    # counts = sorted(
+    #     ((tag, len(byTag[tag])) for tag in byTag.keys())
+    #   , key=lambda x: (-x[1], x[0]) # ordered by descending frequency, then ascending name
+    #   )
+    counts = sorted((tag, len(byTag[tag])) for tag in byTag.keys()) # ordered by ascending name
     for tag, count in counts:
+      print(f"{tag} {count}", file=sys.stderr)
       print(f"{tag} {count}", file=fp)
 
 def generateTagIndex(fp):
@@ -54,8 +57,8 @@ def generateTagIndex(fp):
     humanTag = " ".join(toTagword(tag) for tag in tag.split("-"))
     out(f"### {humanTag}")
     out("")
-    for title, fname in byTag[tag]:
-      out(f"  * [{title}]({fname})")
+    for title, fname, ftags in byTag[tag]:
+      out(f"  * [{title}]({fname}): {', '.join(ftags)}")
     out("")
   if untagged:
     out("### WARNING: Untagged Notes")
@@ -94,12 +97,9 @@ def processNote(fname):
         if not line.strip():
           continue
         tagRegex = r'[a-z]+(?:-[a-z]+|\d+)*'
-        tagMatch = re.match(r'tag:\s+('+tagRegex+r')\s*', line)
         tagsMatch = re.match(r'tags:\s+('+tagRegex+r'(?:\s*,\s+'+tagRegex+r')*)(?:\s*,\s*)?\s*', line)
         # extract tag and tags lines
-        if tagMatch:
-          tags.add(tagMatch.group(1))
-        elif tagsMatch:
+        if tagsMatch:
           tags |= set(tag.strip() for tag in tagsMatch.group(1).split(","))
         else:
           break
