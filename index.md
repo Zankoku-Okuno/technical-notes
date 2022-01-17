@@ -4,23 +4,23 @@
 
 ### Api Design
 
-  * [A Foolish Solution for Chaining Relational Operators](./notes/2022-01-16-001-foolish-relationship-chains.md): haskell, api-design, mixfixes
+  * [A Foolish Solution for Chaining Relational Operators](./notes/2022-01-16-001-foolish-relationship-chains.md): api-design, haskell, mixfixes
 
 ### Dependent Types
 
-  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): metaprogramming, learning, tactics, dependent-types
+  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): dependent-types, learning, metaprogramming, tactics
 
 ### Documentation
 
-  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): plan, docs, hott, lang-design
+  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): docs, hott, lang-design, plan
 
 ### Haskell
 
-  * [A Foolish Solution for Chaining Relational Operators](./notes/2022-01-16-001-foolish-relationship-chains.md): haskell, api-design, mixfixes
+  * [A Foolish Solution for Chaining Relational Operators](./notes/2022-01-16-001-foolish-relationship-chains.md): api-design, haskell, mixfixes
 
 ### HoTT
 
-  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): plan, docs, hott, lang-design
+  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): docs, hott, lang-design, plan
 
 ### Json
 
@@ -28,46 +28,46 @@
 
 ### Language Design
 
-  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): plan, docs, hott, lang-design
-  * [Language Development Plans](./notes/2022-01-15-000-plans.md): plan, parsers, lang-design
-  * [Can a Language be Described as "Complex"?](./notes/2022-01-16-000-hs-complexity.md): philosophy, lang-design
-  * [Strict Language, Lazy Semantics](./notes/2022-01-17-000-strict-lang-lazy-semantics.md): laziness, lang-impl, lang-design
+  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): docs, hott, lang-design, plan
+  * [Language Development Plans](./notes/2022-01-15-000-plans.md): lang-design, parsers, plan
+  * [Can a Language be Described as "Complex"?](./notes/2022-01-16-000-hs-complexity.md): lang-design, philosophy
+  * [Strict Language, Lazy Semantics](./notes/2022-01-17-000-strict-lang-lazy-semantics.md): lang-design, lang-impl, laziness
 
 ### Language Implementation
 
   * [Mixfix Rewriting Algorithm](./notes/2022-01-15-002-mixfix.md): lang-impl, mixfixes
-  * [Strict Language, Lazy Semantics](./notes/2022-01-17-000-strict-lang-lazy-semantics.md): laziness, lang-impl, lang-design
+  * [Strict Language, Lazy Semantics](./notes/2022-01-17-000-strict-lang-lazy-semantics.md): lang-design, lang-impl, laziness
 
 ### Laziness
 
-  * [Strict Language, Lazy Semantics](./notes/2022-01-17-000-strict-lang-lazy-semantics.md): laziness, lang-impl, lang-design
+  * [Strict Language, Lazy Semantics](./notes/2022-01-17-000-strict-lang-lazy-semantics.md): lang-design, lang-impl, laziness
 
 ### Learning
 
-  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): metaprogramming, learning, tactics, dependent-types
+  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): dependent-types, learning, metaprogramming, tactics
 
 ### Metaprogramming
 
-  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): metaprogramming, learning, tactics, dependent-types
+  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): dependent-types, learning, metaprogramming, tactics
 
 ### Mixfixes
 
-  * [A Foolish Solution for Chaining Relational Operators](./notes/2022-01-16-001-foolish-relationship-chains.md): haskell, api-design, mixfixes
+  * [A Foolish Solution for Chaining Relational Operators](./notes/2022-01-16-001-foolish-relationship-chains.md): api-design, haskell, mixfixes
   * [Mixfix Rewriting Algorithm](./notes/2022-01-15-002-mixfix.md): lang-impl, mixfixes
 
 ### Parsers
 
   * [Collecting Escape Sequences](./notes/2022-01-16-004-escape-sequences.md): parsers, todo
-  * [Language Development Plans](./notes/2022-01-15-000-plans.md): plan, parsers, lang-design
+  * [Language Development Plans](./notes/2022-01-15-000-plans.md): lang-design, parsers, plan
 
 ### Philosophy
 
-  * [Can a Language be Described as "Complex"?](./notes/2022-01-16-000-hs-complexity.md): philosophy, lang-design
+  * [Can a Language be Described as "Complex"?](./notes/2022-01-16-000-hs-complexity.md): lang-design, philosophy
 
 ### Plan
 
-  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): plan, docs, hott, lang-design
-  * [Language Development Plans](./notes/2022-01-15-000-plans.md): plan, parsers, lang-design
+  * [Design Goals for a HoTT-based Language](./notes/2022-01-15-001-hottlang.md): docs, hott, lang-design, plan
+  * [Language Development Plans](./notes/2022-01-15-000-plans.md): lang-design, parsers, plan
 
 ### Rant
 
@@ -75,7 +75,7 @@
 
 ### Tactics
 
-  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): metaprogramming, learning, tactics, dependent-types
+  * [Tactics Programming](./notes/2022-01-16-002-tactics-are-metaprogramming.md): dependent-types, learning, metaprogramming, tactics
 
 ### Text Encoding
 

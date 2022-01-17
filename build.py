@@ -59,7 +59,7 @@ def generateTagIndex(fp):
     out(f"### {humanTag}")
     out("")
     for title, fname, ftags in byTag[tag]:
-      out(f"  * [{title}]({fname}): {', '.join(ftags)}")
+      out(f"  * [{title}]({fname}): {', '.join(sorted(ftags))}")
     out("")
   if untagged:
     out("### WARNING: Untagged Notes")
