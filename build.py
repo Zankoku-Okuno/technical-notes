@@ -14,6 +14,7 @@ tagwordToTitle = {
   "hott": "HoTT",
   "impl": "Implementation",
   "lang": "Language",
+  "sysadmin": "System Administration",
   "todo": "TODO",
 }
 

@@ -44,3 +44,9 @@ Obviously, compilation as a whole should fail if parts of a program are `undefin
 I almost certainly need to pay more attention to Template Haskell, and possibly also the typed expression types that have been added of late.
 It's a little bit of a pain what with GHC's internal AST changing, and not quite yet being unified with TH's AST type, but
   it's well worth it if Wingman could be just normal TH instead of a HLS plugin.
+
+There's also the question of typesetting tactics programs to both look mathematical, and look programmatical.
+I think typesetting as Fitch-style proofs (or some variant that reduces duplication) may be useful here.
+The LHS can be a partial proof (with holes (linking to the expression that fills the hole)).
+The RHS can be the written tactic.
+Thankfully, Fitch proofs are naturally organized as nested sections, allowing section collapsing.
