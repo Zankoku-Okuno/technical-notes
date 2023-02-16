@@ -1,0 +1,27 @@
+# Types for Development Speed
+
+tags: lang-design
+
+Dynamically-typed languages still have type errors (they just show up at runtime… if that code path is exercised).
+It's possible to write a dynamically-typed program that doesn't have any type errors,
+  but to do so, you'll have to slow down considerably.
+Also, when you come back and change any interfaces,
+  you will have to re-think all the types across the whole program.
+Again, it's possible to do this without introducing any type errors,
+  but you'll have to remember all the places the interface is used,
+  and this is very slow.
+If you added a type system that would automatically show you type errors, that would speed up your development and maintenance.
+
+
+Speaking of type speeding up development, I encountered a strange type error
+After a bit of experimenting, I realized that `fmap` wasn't the right function to call,
+  but I still have no idea what I should use in its place (if indeed there was anything suitable).
+I hopped into hoogle to search for `(Applicative f, Applicative g) => (a -> f a) -> g a -> f (g a)`.
+Even before I had finished I vaguely recalled something about applicative transformers being trivial,
+  so I knew there would be something.
+Sure enough, the function I needed was named `traverse`.
+Just to confirm, I also checked
+  `(Applicative f) => (a -> f a) -> Maybe a -> f (Maybe a)`
+  `(Applicative f) => (a -> f a) -> [a] -> f [a]`,
+and yes, everything suddenly started working
+Try that workflow with Python why don'tcha?

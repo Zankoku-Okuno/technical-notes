@@ -13,18 +13,18 @@ However, I do have some more proximate causes of concern.
 
 ## Sub-Optimality
 
-Fundamentally, code style is a way to describe programmer intension.
-This is just like in natural language, where a question can be phrased in a neutral style like "Did you take out the trash?", but when phrased in a different style "Did you really take out the trash?" has a very different intension and message.
+Fundamentally, code style is a way to describe programmer intention.
+This is just like in natural language, where a question can be phrased in a neutral style like "Did you take out the trash?", but when phrased in a different style "Did you really take out the trash?" has a very different intention and message.
 A code style standard (as enforced by a formatter) is a way to describe what the neutral style should be.
 When that style is deviated from, this shows the reader that something "weird" is going on, and more care should be taken when reading.
 A configure-less formatter ensures that everyone speaks the same neutral, but one project's weird is another project's normal.
 A configuration file would be able not only allow the weird project to use its own idioms, but also be a place to document how and _why_ the project is weird.
 
 Code formatters generally do four things:
-  * make and enforce a trivial decisions,
+  * make and enforce trivial decisions,
   * detect and replace known anti-patterns,
   * erase intentional deviations from the neutral standard, and
-  * use brackets instead of indentation as ground-truth for nesting intension.
+  * use brackets instead of indentation as ground-truth for nesting intention.
 
 
 
@@ -37,7 +37,7 @@ The classic example here is how to indent code: tabs or spaces?, how big?
 Honestly, if you let people configure indentation size, most everyone will quickly realize that the extra configuration effort for every project is not worth such a trivial payoff.
 Instead, they'll configure the language-specific settings in their editor once and be done with it, or maybe install a plugin that can read the formatter configuration and do the project-specific configuration automatically.
 For people who haven't yet realized that indentation style is trivial—and they're usually vocal about it—they will spend their efforts configuring their projects, and _not pestering the language/formatter maintainer_ with an unending stream of duplicate, whiny issues to close.
-And what's the worst that could happen?, every project has a different preferences over a trivial matter like indentation?, it's a trivial difference.
+And what's the worst that could happen?, every project has a different preference over a trivial matter like indentation?, it's a trivial difference.
 
 Whitespace is one of the most controversial things because everyone has preferences, but no natural preference improves/degrades quality.
 These trivial decisions are defined by that last point: their inability to influence a general reader's ability comprehend the code.

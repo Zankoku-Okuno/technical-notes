@@ -1,8 +1,10 @@
 # Monad for Errors: general-purpose, contextualized, fatal/nonfatal/warning
 
+tags: haskell, api-design
+
 ## Gather
 
-Step one in reporting errors and warnings is gathering them, along with all information that might alter be relevant for formatting.
+Step one in reporting errors and warnings is gathering them, along with all information that might be relevant for formatting.
 
 I initially was inspired to add notes to errors as a primitive, but
   honestly the notes should be part of the `err` type, since

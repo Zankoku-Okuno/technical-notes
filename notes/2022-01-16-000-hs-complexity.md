@@ -30,19 +30,22 @@ And finally, a warning about:
 Something that's bugged me about Haskell is that if I change a type somewhere, not only do I have to change the interior code, but I have to change all the code that uses that type as well.
 This seems like complexity (one thing changes means another changes).
 However, the type describes an interface. If the upstream interface changes, the downstream users of that interface must also adapt to the new version, obviously.
-The nice thing about static typing is that it can automatically identify _all_ the downstream users of an interface in less than a second (up to library boundaries).
-Therefore, I don't see Haskell as inherently complicated for requiring downstream to update their code in response to breaking changes; I simply see that it can be tedious to update, and so upstream changes should be avoided so as to not introduce complications (complicatedness).
+The nice thing about static typing is that it can automatically identify _all_ the downstream users of an interface in less than a second (within libraries; inter-library will take more time to build upstream dependencies).
+Therefore, I don't see Haskell as inherently complicated for requiring downstream to update their code in response to breaking changes.
+I simply see that it can be tedious to update, and so upstream changes should be avoided so as to not introduce complications (complicatedness).
+Then again, untyped languages have that same tedium,
+  plus the tedium of _finding_ what's downstream.
 
-Complexity is when the interface for a function specifies "calling foFunction before calling fooInit is an error" (looking at you, literally every C library).
+Complexity is when the interface for a function specifies "calling fooFunction before calling fooInit is an error" (looking at you, literally every C library).
 If the user of such a library alters the evaluation order of their code, then suddenly an error occurs (or worse, data corruption).
 But who controls the evaluation order? The language runtime, a third-party framework, or what?
 Suddenly code that doesn't know about (say) OpenGL cannot be used with OpenGL unless it also exposes evaluation order in its interface.
-If a language doesn't expose such concerns (e.g. it may optimize computations using lazy evaluation as in Haskell or dynamic linkers, or as part of culling algorithms), then it can't safely be used with OpenGL.
-That is: an internal change in one piece (your framework) tugs on some unrelated (i.e. the authors of the pieces don't coordinate with each other) piece (fooInit), and the braid tears apart.
+If a language doesn't expose such concerns (e.g. it may optimize computations using lazy evaluation, or as part of culling algorithms), then it can't safely be used with OpenGL.
+That is: an internal change in one piece (your framework) tugs on some unrelated (i.e. the authors of the pieces don't coordinate with each other) piece (fooInit), and the braid frays.
 
 It's entirely possible to write complex Haskell code.
-For example, using the `hOpen` and `hClose` actions, or more commonly notably when using the State monad (and its ilk) or unsafe functions.
+For example, using the `hOpen` and `hClose` actions, or more commonly when using the State monad (and its ilk) or unsafe functions.
 The first of these can be avoided easily (use the `withFile` interface instead).
 Haskell the language mildly steers you away from using `State`, though it's not too hard to use and use it right in a small, internal module.
-As far as unsafe functions, they are all specifically named `unsafeFoo` or defined in a module name `Unsafe`: what better way to make sure you actually detect the code smell?, all I have to do is `grep -rF '[Uu]nsafe' src/`.
+As far as unsafe functions, they are all specifically named `unsafeFoo` or defined in a module name `Unsafe`: what better way to make sure you actually detect the code smell?, all I have to do is `grep -r '[Uu]nsafe' src/`.
 Haskell doesn't magically make code less complex; instead the ergonomics of the design steer you away from accidentally introducing complexity.

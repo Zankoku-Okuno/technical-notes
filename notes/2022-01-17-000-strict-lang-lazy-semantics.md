@@ -1,8 +1,8 @@
 # Strict Language, Lazy Semantics
 
-tags: lang-design, lang-impl, laziness
+tags: lang-design, lang-impl, lazy-evaluation
 
-There a strict Haskell variant out there (called mu?) that has a compiler flag that
+There's a strict Haskell variant out there (called mu?) that has a compiler flag that
   allows let-bindings to float down even if they would have caused an exception.
 It seems like people just turn this on and don't worry about it.
 It breaks the semantics (a non-terminating function becomes terminating), but this is probably because the semantics are too narrowly-defined.
@@ -10,17 +10,17 @@ But, how would you formalize it?
 
 I think you would define the semantics of the language to be "lazy".
 You would have to be careful of the reduction of mutable cell allocation/control operators/message-passing a-la π-calculus, which are all the same thing anyway.
-However, "lazy" semantics does _not_guarantee a delay of evaluation:
+However, "lazy" semantics does _not_ guarantee a delay of evaluation:
   a compiler/interpreter is allowed evaluate expressions at any time,
   it does not have to _guarantee_ delay to the last possible moment.
 So, a compiler for such a language would be allowed—but not required—to force all function arguments before evaluating the body of the invocation.
 
-The reason I've but lazy in quotes above is that laziness seems to relate more to evaluation order than semantics.
+The reason I've put lazy in quotes above is that laziness seems to relate more to evaluation order than semantics.
 At least in my mind, evaluation order is a separate layer from the semantics of functional equivalence.
 
 For example, calling `f 1 (raise FooError)` could result in an error.
 However, if `f x y = x`, the compiler could inline `f` and naïvely β-convert, which would result in normalizing to `1`.
-Such a a strategy would only result in stuck or non-terminating terms becoming terminating.
+Such a strategy would only result in stuck or non-terminating terms becoming terminating.
 
 On the other hand, data constructors are (in a sense) primitives, and so cannot be inlined.
 I think we can be sure that a function that returns a datum will evaluate all the arguments to the constructor, and no data type will be accidentally lazy.
@@ -57,7 +57,7 @@ The more terms a compiler can guarantee normalization for, the higher-quality th
 This seems to be exactly the case for Mu, since everyone turns on the "higher-quality" version of the compiler.
 
 Unknown function calls are almost certainly going to get a performance regression, though.
-If a compiler decides that some of a function's args should be taken lazily, but the function is invoked in as statically unknown, how will the unknown call know the laziness of the calling convention?
+If a compiler decides that some of a function's args should be taken lazily, but the function is invoked as statically unknown, how will the unknown call know the laziness of the calling convention?
 The only thing I can think is to have every function come along with not just the native number of arguments it takes, but also a bitmap of which args should be lazy.
 This would create additional branches before an unknown function call relative to Haskell, degrading performance in those cases.
 Frankly, unknown function calls are _already_ bad for performance, so it might not be worth worrying about such cases:

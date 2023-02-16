@@ -1,5 +1,5 @@
 # Core Laziness "Advantage"
-tags: lang-design
+tags: lang-design, lazy-evaluation
 
 From What I Wish I Knew When Learning Haskell:
   > The primary advantage of lazy evaluation in the large is that algorithms that operate over both unbounded and bounded data structures can inhabit the same type signatures

@@ -18,9 +18,11 @@ What this means is that the author of a document containing tabs does not have a
 In practice, while separating presentation from content can be advantageous in certain circumstances,
   even where this is promoted (HTML/CSS), authors nevertheless exert firmer controls when it comes to the size of spacing.
 
-While the web has a mature system for being responsive to user presentation configuration (i.e. needs),
-  applications which manipulate "plain" text have immature capabilities at best, but more usually non-existent.
-Such applications are not limited to text editors, but also include terminal emulators, and software which presents information to the user on a terminal: essentially every command-line application including compilers, interpreters, and system administration utilities.
+The web has a mature system for being responsive to user presentation configuration (i.e. needs).
+However, applications which manipulate "plain" text have immature capabilities at best, but more usually non-existent.
+Such applications are not limited to text editors, but also include
+  terminal emulators, and software which presents information to the user on a terminal:
+  essentially every command-line application including compilers, interpreters, and system administration utilities.
 No standard has coalesced around providing such support uniformly, and it does not seem likely to happen.
 
 Essentially what I'm saying is: plain text is still the same kind of document that once was spat out of typewriters across the world, it's only the character set that has changed.
@@ -43,9 +45,9 @@ Let me ask you a question: why not LFCR?
 Historical accident you say?
 Which accident, when, where?
 
-It's teletype time again, and you are trying to command the teleprinter to move down a line, return to the first column, and print som more characters.
+It's teletype time again, and you are trying to command the teleprinter to move down a line, return to the first column, and print some more characters.
 It moves down the line nice and quick, then begins moving backwards to the start of the line, but it takes a while to move that heavy carriage such a long distance, and already it's received a command to print a character even though it hasn't made it back!
-Suddenly, that character has been speared across the paper—assuming that the machine didn't jam or rattle out of alignment thanks to the accidental collision.
+Suddenly, that character has been smeared across the paper—assuming that the machine didn't jam or rattle out of alignment thanks to the accidental collision.
 So, you emit the carriage return first to get it going, then the linefeed—which can safely be executed in parallel with the carriage return— and by the time the linefeed command is complete and the next command arrives, the carriage has successfully returned, allowing that character to be printed correctly.
 
 Phew! Aren't you glad we don't live in the bad old days anymore?
@@ -61,7 +63,7 @@ Obviously a checksum won't pick up on that.
 How many times have you run into a bug that would have been detected earlier if we used CRLF instead of plain LF?
 On the other hand, how many times has incompatible line endings caused a system to fail?, 'cause I happen to know it regularly causes delays in billing and customer service for at least a certain telecom company.
 
-I'd almost make the argument that CRLF is a waste of space and processing time, but I doubt the space savings are significant in all but the most niche fields—especially after compression—, and the time complexity of two-byte lookahead makes no difference when you already have enough lookahead to process a whole unicode character at once.
+I'd almost make the argument that CRLF is a waste of space and processing time, but I doubt the space savings are significant in all but the most niche fields—especially after compression—and the time complexity of two-byte lookahead makes no difference when you already have enough lookahead to process a whole unicode character at once.
 Long story short: performance is a non-issue here.
 
 We need a single standard for inserting newlines into plain text, and frankly it doesn't much matter which it is.
